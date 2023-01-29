@@ -18,6 +18,7 @@
         align-items: center
         padding: 1rem 1rem 1rem
         width: 100%
+        padding-bottom: 2rem
 
         .logo
             cursor: pointer
@@ -32,7 +33,7 @@
             margin-left: 4rem
             font-size: 24px
             margin-top: 1rem
-            color: v.$itensSidenav
+            color: v.$backgroundSidenav
             position: absolute
             text-align: center
             width: 125px
@@ -41,21 +42,30 @@
         .buttonClose
             margin-left: 13.1rem
             cursor: pointer
-            border-radius: 50%
+            border-radius: 100%
             background-color: transparent
             font-size: 2.5rem
             border: none
-            color: v.$itensSidenav
+            color: v.$backgroundSidenav
             position: absolute
 
             &:hover
-                color: v.$magenta
+                color: v.$bodyColor
+
+            &::after
 
 .sidenavCollapsed
     width: 17rem
 
-    .logoText, .buttonClose, .sidenavLinkText
+    .logoContainer
+            background-color: v.$itensSidenav
+            animation: fadeIn 2s
+            box-shadow: 0.065rem 0 1.25rem 0 v.$support
+            border-radius: 0px 1.5rem 0px 0px
+
+    .logoText, .buttonClose, .sidenavLinkText 
         animation: fadeIn 2s
+        
 
 .sidenavNav
     list-style: none
@@ -122,3 +132,9 @@
         opacity: 0
     100%
         opacity: 1
+
+@keyframes fadeOut
+    0%
+        opacity: 1
+    100%
+        opacity: 0

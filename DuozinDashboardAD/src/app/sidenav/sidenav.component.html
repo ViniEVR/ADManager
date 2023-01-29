@@ -3,7 +3,7 @@
       
       <div class="logoText" *ngIf="collapsed">Gerenciador AD</div>
       <img
-        src="/assets/img/BRANCO VERTICAL.png"
+        [src]="currentImage"
         class="logo"
         (click)="toggleCollapse()"
       />
