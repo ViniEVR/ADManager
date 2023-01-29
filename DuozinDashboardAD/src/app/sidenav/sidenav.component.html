@@ -1,0 +1,29 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenavCollapsed' : ''">
+    <div class="logoContainer">
+      
+      <div class="logoText" *ngIf="collapsed">Gerenciador AD</div>
+      <img
+        src="/assets/img/BRANCO VERTICAL.png"
+        class="logo"
+        (click)="toggleCollapse()"
+      />
+      <button class="buttonClose" *ngIf="collapsed" (click)="closeSidenav()">
+        <i class="bx bx-x"></i>
+      </button>
+    </div>
+    <ul class="sidenavNav">
+      <li class="sidenavNavItem" *ngFor="let data of navData; let i = index">
+        <a href=""  class="sidenavNavLink" [routerLink]="[data.routelink]" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"  >
+          <i class="sidenavLinkIcon" [class]="data.icon"></i>
+          <p *ngIf="!collapsed"
+          class="tooltipNav">{{data.label}}</p>
+          <span class="sidenavLinkText" *ngIf="collapsed">{{ data.label }}</span>
+        </a>
+        <hr *ngIf="data.label == 'Usuários'" />
+      </li>
+    </ul>
+  </div>
+  
+  
+  
