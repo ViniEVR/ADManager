@@ -3,7 +3,7 @@ $Password = ConvertTo-SecureString $args[1] -AsPlainText -Force
 $DisplayName = $args[2]
 $Email = $args[3]
 
-$UserPrincipalName = $Username + "duozin.local.com.br"
+$UserPrincipalName = $Username + "duozin.local"
 $SAMAccountName = $Username
 
 $ADUserParams = @{
