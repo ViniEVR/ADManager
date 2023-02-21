@@ -1,1 +1,0 @@
-New-Item -Path 'C:\Users\vinim\AppData\Local\Temp\Pasta' -ItemType Directory

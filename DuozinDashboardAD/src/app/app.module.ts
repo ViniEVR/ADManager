@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BodyComponent } from './body/body.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     BodyComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

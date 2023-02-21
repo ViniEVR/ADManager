@@ -9,6 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.sass'],
 })
+
 export class CreateUserComponent {
   constructor(private http: HttpClient) {}
 
@@ -35,4 +36,5 @@ export class CreateUserComponent {
         }
       });
   }
+  
 }
