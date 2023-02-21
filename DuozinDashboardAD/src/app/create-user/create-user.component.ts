@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-user',
@@ -13,9 +14,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class CreateUserComponent {
   constructor(private http: HttpClient) {}
 
+  username: string = 'teste';
+  password: string = '123456';
+  displayName: string = 'vinicius.teste';
+  email: string = 'vinimice42@gmail.com';
+
   runScript(scriptName: string) {
     this.http
-      .get('http://localhost:3000/run-script/scripts/' + scriptName)
+      .get(`http://localhost:3000/run-script/scripts/${scriptName}/${this.username}/${this.password}/${this.displayName}/${this.email}`)
       .pipe(
         catchError((err) => {
           if (err instanceof HttpErrorResponse) {
