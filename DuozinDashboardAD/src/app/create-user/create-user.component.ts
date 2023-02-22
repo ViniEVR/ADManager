@@ -10,18 +10,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.sass'],
 })
-
 export class CreateUserComponent {
   constructor(private http: HttpClient) {}
 
-  username: string = 'teste';
-  password: string = '123456';
-  displayName: string = 'vinicius.teste';
-  email: string = 'vinimice42@gmail.com';
 
+  username: string = "teste";
+  password: string = "123456";
+  displayName: string = "vinicius.teste";
+  email: string = "vinimice42@gmail.com";
   runScript(scriptName: string) {
-    this.http
-      .get(`http://localhost:3000/run-script/scripts/${scriptName}/${this.username}/${this.password}/${this.displayName}/${this.email}`)
+    
+    this.http.get(`http://localhost:3000/run-script/scripts/${scriptName}?Username=${this.username}&Password=${this.password}&DisplayName=${this.displayName}&Email=${this.email}`)
+
       .pipe(
         catchError((err) => {
           if (err instanceof HttpErrorResponse) {
@@ -42,5 +42,4 @@ export class CreateUserComponent {
         }
       });
   }
-  
 }

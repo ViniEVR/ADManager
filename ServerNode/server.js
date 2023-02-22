@@ -9,6 +9,11 @@ const port = 3000;
 
 
 app.get("/run-script/scripts/:scriptName", async (req, res) => {   
+  console.log(`Received username: ${req.query.username}`);
+  console.log(`Received password: ${req.query.password}`);
+  console.log(`Received display name: ${req.query.displayName}`);
+  console.log(`Received email: ${req.query.email}`);
+
   const scriptName = req.params.scriptName;
   const scriptPath = `scripts/${scriptName}`;
   let scriptOutput = "";
