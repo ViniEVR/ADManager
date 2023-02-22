@@ -1,17 +1,64 @@
 <div action="" class="usersContainer">
   <div class="usersData">
-    <h1>Criação de usuários</h1>
-
-    <p>create-user works!</p>
-    <button (click)="runScript('create-user.ps1')">Executar script</button>
-
-    <div class="itensPostition">
-      
-        
-    
+    <div class="imgs">
+      <img src=".\assets\img\edificio.jpg" class="edificio" alt="Edificio" />
+      <img src=".\assets\img\Logos\sideNav.png" class="logo" alt="Edificio" />
     </div>
-    
 
+    <div class="itens">
+      <h1>Criação de usuários</h1>
+      <form #f="ngForm" (ngSubmit)="runScript('createUser.ps1')">
+        <div class="inputs">
+          <div class="form__group field">
+            <input type="text" class="form__field" placeholder="Name" name="displayName" [(ngModel)]="displayName" required/>
+            <label for="name" class="form__label">Nome</label>
+          </div>
+          <div class="form__group field">
+            <input
+              type="password"
+              class="form__field"
+              placeholder="Name"
+              name="password"
+              id="passsword"
+              required
+              [(ngModel)]="password" />
+            <label for="password" class="form__label">Senha</label>
+          </div>
+          <div class="form__group field">
+            <input
+              type="text"
+              class="form__field"
+              placeholder="Name"
+              name="userName"
+              id="userName"
+              required
+              [(ngModel)]="username"
+            />
+            <label for="userName" class="form__label">Nome de usuário </label>
+          </div>
+          <div class="form__group field">
+            <input
+              type="email"
+              class="form__field"
+              placeholder="Name"
+              name="Email"
+              id="Email"
+              required
+              [(ngModel)]="email"
+            />
+            <label for="Email" class="form__label">Email </label>
+          </div>
 
+          <h5>Grupo</h5>
+          <select [(ngModel)]="grupoSelecionado" name="grupoSelecionado">
+            <option value="Financeiro" selected>Financeiro</option>
+            <option value="Compras">Compras</option>
+            <option value="TI">TI</option>
+          </select>
+        </div>
+
+        <button class="btn btn-light">Criar Usuário</button>
+      </form>
+    </div>
   </div>
 </div>

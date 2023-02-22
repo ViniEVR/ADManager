@@ -6,19 +6,15 @@ app.use(cors());
 
 const port = 3000;
 
-
-
 app.get("/run-script/scripts/:scriptName", async (req, res) => {   
-  console.log(`Received username: ${req.query.username}`);
-  console.log(`Received password: ${req.query.password}`);
-  console.log(`Received display name: ${req.query.displayName}`);
-  console.log(`Received email: ${req.query.email}`);
 
   const scriptName = req.params.scriptName;
   const scriptPath = `scripts/${scriptName}`;
+  const { Username, Password, DisplayName, Email, Group } = req.query;
+
   let scriptOutput = "";
   try {
-    scriptOutput = await execFile("powershell.exe", ["-File", scriptPath]);
+    scriptOutput = await execFile("powershell.exe", ["-File", scriptPath, Username, Password, DisplayName, Email, Group]);
     if (typeof scriptOutput === "string") {
       const outputJson = JSON.parse(scriptOutput);
       res.send(outputJson);
@@ -30,7 +26,6 @@ app.get("/run-script/scripts/:scriptName", async (req, res) => {
     res.status(500).send("Error running script");
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

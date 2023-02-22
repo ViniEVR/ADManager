@@ -4,6 +4,7 @@ interface SideNavToggle{
   screenWidth: number;
   collapsed: boolean;
 }
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
